@@ -14,26 +14,30 @@
     body { overflow-x: hidden; }
 
     :root {
-      --bg: #f0f6ff;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --primary: #1d6bf3;
-      --secondary: #7c3aed;
+      --bg: #0a0e27;
+      --surface: #1a1f3a;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --secondary: #a855f7;
+      --accent: #10b981;
+      --border: #2d3a5f;
       --font-family: 'Plus Jakarta Sans', sans-serif;
       --font-size: 16;
     }
 
     /* ── Gradient text ── */
     .grad-text {
-      background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 50%, var(--secondary) 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* ── Hero background ── */
+    /* ── Hero background - Modern & Clean ── */
     .hero-bg {
-      background: linear-gradient(135deg, #0a1628 0%, #0d2555 45%, #1a0a3b 100%);
+      background: linear-gradient(180deg, #0f1729 0%, #0a0e27 50%, #051015 100%);
       position: relative;
       overflow: hidden;
     }
@@ -42,155 +46,176 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 60% at 70% 40%, rgba(29,107,243,0.25) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(124,58,237,0.2) 0%, transparent 70%);
+        radial-gradient(ellipse 80% 80% at 100% 0%, rgba(59,130,246,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 60% at 0% 100%, rgba(168,85,247,0.12) 0%, transparent 50%);
+      pointer-events: none;
     }
+    
     .hero-grid {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(29,107,243,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(29,107,243,0.06) 1px, transparent 1px);
-      background-size: 48px 48px;
+        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
     }
 
-    /* ── Floating orbs ── */
+    /* ── Floating orbs - Subtle ── */
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(60px);
-      animation: float 8s ease-in-out infinite;
+      filter: blur(80px);
+      animation: float 12s ease-in-out infinite;
+      opacity: 0.4;
     }
-    .orb-1 { width: 300px; height: 300px; background: rgba(29,107,243,0.15); top: -80px; right: 10%; animation-delay: 0s; }
-    .orb-2 { width: 200px; height: 200px; background: rgba(124,58,237,0.15); bottom: 20%; left: 5%; animation-delay: 3s; }
-    .orb-3 { width: 150px; height: 150px; background: rgba(96,165,250,0.12); top: 40%; right: 30%; animation-delay: 5s; }
+    .orb-1 { width: 280px; height: 280px; background: rgba(59,130,246,0.12); top: -100px; right: 5%; animation-delay: 0s; }
+    .orb-2 { width: 200px; height: 200px; background: rgba(168,85,247,0.08); bottom: 10%; left: -50px; animation-delay: 4s; }
+    .orb-3 { width: 160px; height: 160px; background: rgba(16,185,129,0.06); top: 30%; right: 20%; animation-delay: 6s; }
     @keyframes float {
       0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-20px) scale(1.05); }
+      50% { transform: translateY(-30px) scale(1.08); }
     }
 
     /* ── Sticky nav ── */
     #navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      transition: background 0.3s, box-shadow 0.3s;
+      transition: all 0.3s ease;
+      background: rgba(10, 14, 39, 0);
     }
     #navbar.scrolled {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 2px 20px rgba(29,107,243,0.08);
+      background: rgba(10,14,39,0.88);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
 
-    /* ── Cards ── */
+    /* ── Cards - Minimalist Modern ── */
     .portfolio-card {
       background: var(--surface);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(29,107,243,0.07);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(29,107,243,0.08);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
     }
-    .portfolio-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(29,107,243,0.15); }
+    .portfolio-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 12px 24px rgba(59,130,246,0.2);
+      border-color: var(--primary-light);
+    }
 
     .service-card {
       background: var(--surface);
-      border-radius: 20px;
+      border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 4px 24px rgba(29,107,243,0.07);
-      border: 1px solid rgba(29,107,243,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
     }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(29,107,243,0.14); }
+    .service-card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 16px 32px rgba(59,130,246,0.15);
+      border-color: var(--primary-light);
+    }
 
     /* ── Skill bar ── */
-    .skill-bar { height: 6px; border-radius: 99px; background: rgba(29,107,243,0.1); overflow: hidden; }
+    .skill-bar { height: 5px; border-radius: 99px; background: var(--border); overflow: hidden; }
     .skill-fill {
       height: 100%;
       border-radius: 99px;
-      background: linear-gradient(90deg, var(--primary), #60a5fa);
-      animation: fillBar 1.4s ease-out forwards;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      animation: fillBar 1.2s ease-out forwards;
       transform-origin: left;
     }
     @keyframes fillBar { from { width: 0%; } }
 
-    /* ── Section animations ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── Buttons ── */
+    /* ── Buttons - Clean & Modern ── */
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #60a5fa);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #fff;
       border: none;
-      border-radius: 50px;
-      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      padding: 0.85rem 2rem;
       font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.2s ease;
       font-family: var(--font-family);
+      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,107,243,0.35); }
+    .btn-primary:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 6px 20px rgba(59,130,246,0.45);
+    }
 
     .btn-outline {
       background: transparent;
       color: #fff;
-      border: 2px solid rgba(255,255,255,0.35);
-      border-radius: 50px;
-      padding: 0.75rem 2rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 8px;
+      padding: 0.85rem 2rem;
       font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
+      transition: all 0.2s ease;
       font-family: var(--font-family);
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.7); }
+    .btn-outline:hover { 
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.8);
+      transform: translateY(-2px);
+    }
 
-    /* ── WhatsApp FAB ── */
+    /* ── WhatsApp FAB - Floating ── */
     #wa-fab {
       position: fixed;
       bottom: 28px; right: 24px;
       z-index: 200;
-      width: 56px; height: 56px;
+      width: 60px; height: 60px;
       border-radius: 50%;
       background: linear-gradient(135deg, #25d366, #128c7e);
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
       text-decoration: none;
     }
-    #wa-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    #wa-fab:hover { 
+      transform: scale(1.12) translateY(-4px); 
+      box-shadow: 0 12px 32px rgba(37,211,102,0.45);
+    }
 
     /* ── Mobile menu ── */
     #mobile-menu {
       display: none;
       flex-direction: column;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      background: rgba(10,14,39,0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     }
     #mobile-menu.open { display: flex; }
 
     /* ── Form ── */
     .form-field {
       width: 100%;
-      border: 1.5px solid rgba(29,107,243,0.18);
-      border-radius: 12px;
-      padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
       font-family: var(--font-family);
       font-size: 0.95rem;
       color: var(--text);
       background: var(--surface);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: all 0.2s ease;
       outline: none;
     }
-    .form-field:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(29,107,243,0.1); }
+    .form-field:focus { 
+      border-color: var(--primary); 
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+    }
 
     /* ── Portfolio icon banners ── */
     .port-banner {
-      height: 160px;
+      height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -198,89 +223,88 @@
       overflow: hidden;
     }
 
-    /* Toast */
+    /* ── Toast - Inline notification ── */
     #toast {
       position: fixed; bottom: 100px; right: 24px; z-index: 300;
-      background: #0f172a; color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
+      background: #1a1f3a; color: #f1f5f9;
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
       font-size: 0.9rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
       transform: translateY(20px); opacity: 0;
       transition: opacity 0.3s, transform 0.3s;
       pointer-events: none;
+      border-left: 4px solid var(--primary);
     }
     #toast.show { opacity: 1; transform: translateY(0); }
 
+    /* ── Fade up animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
     @media (max-width: 640px) {
       .hero-bg { min-height: 100%; }
+      .port-banner { height: 120px; }
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full" style="background: var(--bg); color: var(--text);">
-  <!-- ══════════════════════ NAV ══════════════════════ -->
+ <body class="h-full" style="background: var(--bg); color: var(--text);"><!-- ══════════════════════ NAV ══════════════════════ -->
   <nav id="navbar" class="w-full">
-   <div class="max-w-6xl mx-auto px-5 flex items-center justify-between" style="height:68px;">
-    <!-- Logo --> <a href="#beranda" class="flex items-center gap-2 text-white no-underline" id="nav-logo">
-     <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), #60a5fa);">
-      <i data-lucide="code-2" style="width:18px;height:18px;color:#fff;"></i>
-     </div><span class="font-bold text-lg" id="nav-brand">TF</span> </a> <!-- Desktop links -->
-    <div class="hidden md:flex items-center gap-7" id="nav-links">
-     <a href="#beranda" class="nav-link text-sm font-medium transition-colors duration-200">Beranda</a> <a href="#tentang" class="nav-link text-sm font-medium transition-colors duration-200">Tentang</a> <a href="#portofolio" class="nav-link text-sm font-medium transition-colors duration-200">Portofolio</a> <a href="#layanan" class="nav-link text-sm font-medium transition-colors duration-200">Layanan</a> <a href="#kontak" class="nav-link text-sm font-medium transition-colors duration-200">Kontak</a>
+   <div class="max-w-6xl mx-auto px-5 flex items-center justify-between" style="height:68px;"><!-- Logo --> <a href="#beranda" class="flex items-center gap-2 text-white no-underline" id="nav-logo">
+     <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), #60a5fa);"><i data-lucide="code-2" style="width:18px;height:18px;color:#fff;"></i>
+     </div><span class="font-bold text-lg hidden sm:inline" id="nav-brand">TF</span><span class="font-bold text-sm sm:hidden" id="nav-brand-mobile">Tanimbar Falaksoru</span> </a> <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-7" id="nav-links"><a href="#beranda" class="nav-link text-sm font-medium transition-colors duration-200">Beranda</a> <a href="#tentang" class="nav-link text-sm font-medium transition-colors duration-200">Tentang</a> <a href="#portofolio" class="nav-link text-sm font-medium transition-colors duration-200">Portofolio</a> <a href="#layanan" class="nav-link text-sm font-medium transition-colors duration-200">Layanan</a> <a href="#kontak" class="nav-link text-sm font-medium transition-colors duration-200">Kontak</a>
     </div><!-- Hamburger --> <button id="hamburger" class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl text-white" aria-label="Toggle menu" style="background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.2);" onclick="toggleMenu()"> <i data-lucide="menu" id="ham-icon" style="width:20px;height:20px;"></i> </button>
    </div><!-- Mobile menu -->
-   <div id="mobile-menu" class="md:hidden px-5 pb-4 gap-1">
-    <a href="#beranda" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium text-slate-700 hover:bg-blue-50">Beranda</a> <a href="#tentang" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium text-slate-700 hover:bg-blue-50">Tentang</a> <a href="#portofolio" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium text-slate-700 hover:bg-blue-50">Portofolio</a> <a href="#layanan" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium text-slate-700 hover:bg-blue-50">Layanan</a> <a href="#kontak" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium text-slate-700 hover:bg-blue-50">Kontak</a>
+   <div id="mobile-menu" class="md:hidden px-5 pb-4 gap-1"><a href="#beranda" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium hover:bg-blue-950" style="color: rgba(241,245,249,0.8);">Beranda</a> <a href="#tentang" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium hover:bg-blue-950" style="color: rgba(241,245,249,0.8);">Tentang</a> <a href="#portofolio" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium hover:bg-blue-950" style="color: rgba(241,245,249,0.8);">Portofolio</a> <a href="#layanan" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium hover:bg-blue-950" style="color: rgba(241,245,249,0.8);">Layanan</a> <a href="#kontak" onclick="closeMenu()" class="block py-3 px-4 rounded-xl text-sm font-medium hover:bg-blue-950" style="color: rgba(241,245,249,0.8);">Kontak</a>
    </div>
   </nav><!-- ══════════════════════ HERO ══════════════════════ -->
-  <section id="beranda" class="hero-bg w-full" style="padding-top: 120px; padding-bottom: 80px; min-height: 600px;">
+  <section id="beranda" class="hero-bg w-full" style="padding-top: 100px; padding-bottom: 60px; min-height: 600px;">
    <div class="hero-grid"></div>
    <div class="orb orb-1"></div>
    <div class="orb orb-2"></div>
-   <div class="orb orb-3"></div><!-- Floating tech icons -->
-   <div class="absolute hidden lg:block" style="right:8%;top:22%;opacity:0.18;">
-    <i data-lucide="cpu" style="width:56px;height:56px;color:#60a5fa;"></i>
+   <div class="orb orb-3"></div><!-- Tech icons -->
+   <div class="absolute hidden lg:block" style="right:6%;top:18%;opacity:0.12;"><i data-lucide="cpu" style="width:64px;height:64px;color:#2563eb;"></i>
    </div>
-   <div class="absolute hidden lg:block" style="right:18%;bottom:22%;opacity:0.14;">
-    <i data-lucide="database" style="width:44px;height:44px;color:#a78bfa;"></i>
+   <div class="absolute hidden lg:block" style="right:16%;bottom:20%;opacity:0.1;"><i data-lucide="database" style="width:48px;height:48px;color:#7c3aed;"></i>
    </div>
-   <div class="absolute hidden lg:block" style="left:6%;top:28%;opacity:0.12;">
-    <i data-lucide="code-2" style="width:40px;height:40px;color:#93c5fd;"></i>
+   <div class="absolute hidden lg:block" style="left:4%;top:25%;opacity:0.08;"><i data-lucide="code-2" style="width:44px;height:44px;color:#2563eb;"></i>
    </div>
-   <div class="relative max-w-6xl mx-auto px-5 text-center" style="z-index:2;">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 text-xs font-semibold" style="background: rgba(29,107,243,0.18); border: 1px solid rgba(96,165,250,0.3); color: #93c5fd;">
-     <i data-lucide="sparkles" style="width:14px;height:14px;"></i> Pengembang Solusi Digital
+   <div class="relative max-w-6xl mx-auto px-5 text-center" style="z-index:2;"><!-- Badge -->
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 text-xs font-semibold" style="background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15); color: var(--primary);"><i data-lucide="sparkles" style="width:14px;height:14px;"></i> Pengembang Solusi Digital
     </div>
-    <h1 id="hero-name" class="font-extrabold text-white mb-4" style="font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1; letter-spacing: -0.02em;">Tanimbar<br><span class="grad-text">Falaksoru</span></h1>
-    <p id="hero-tagline" class="mx-auto mb-8 font-light" style="color: #94a3b8; max-width: 540px; font-size: clamp(1rem, 2.5vw, 1.2rem); line-height: 1.7;">Pengembang Solusi Digital Pelayanan Publik &amp; Kreator AI</p>
-    <div class="flex flex-wrap items-center justify-center gap-4">
-     <a href="#portofolio"><button class="btn-primary flex items-center gap-2"> <i data-lucide="layout-grid" style="width:16px;height:16px;"></i> Lihat Portofolio </button></a> <a href="#kontak"><button class="btn-outline flex items-center gap-2"> <i data-lucide="send" style="width:16px;height:16px;"></i> Hubungi Saya </button></a>
+    <h1 id="hero-name" class="font-extrabold text-center mb-4" style="font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--text);">Tanimbar<br><span class="grad-text">Falaksoru</span></h1>
+    <p id="hero-tagline" class="mx-auto mb-8 font-light text-lg" style="color: var(--text-light); max-width: 560px; line-height: 1.8;">Pengembang Solusi Digital Pelayanan Publik &amp; Kreator AI</p>
+    <div class="flex flex-wrap items-center justify-center gap-3"><a href="#portofolio"><button class="btn-primary flex items-center gap-2"> <i data-lucide="layout-grid" style="width:16px;height:16px;"></i> Lihat Portofolio </button></a> <a href="#kontak"><button class="btn-outline flex items-center gap-2"> <i data-lucide="send" style="width:16px;height:16px;"></i> Hubungi Saya </button></a>
     </div><!-- Stats -->
-    <div class="mt-14 grid grid-cols-3 gap-4 max-w-lg mx-auto">
-     <div class="rounded-2xl py-4 px-2 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-      <div class="text-2xl font-bold text-white">
+    <div class="grid sm:grid-cols-3 gap-4 mt-8 fade-up">
+     <div class="rounded-12px py-4 px-2 text-center" style="background: rgba(59,130,246,0.1); border: 1px solid var(--border);">
+      <div class="text-2xl font-bold" style="color: var(--primary);">
        5+
       </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
+      <div class="text-xs mt-1" style="color: var(--text-light);">
        Proyek
       </div>
      </div>
-     <div class="rounded-2xl py-4 px-2 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-      <div class="text-2xl font-bold text-white">
+     <div class="rounded-12px py-4 px-2 text-center" style="background: rgba(168,85,247,0.1); border: 1px solid var(--border);">
+      <div class="text-2xl font-bold" style="color: var(--secondary);">
        4
       </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
+      <div class="text-xs mt-1" style="color: var(--text-light);">
        Keahlian
       </div>
      </div>
-     <div class="rounded-2xl py-4 px-2 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-      <div class="text-2xl font-bold text-white">
+     <div class="rounded-12px py-4 px-2 text-center" style="background: rgba(16,185,129,0.1); border: 1px solid var(--border);">
+      <div class="text-2xl font-bold" style="color: var(--accent);">
        100%
       </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
+      <div class="text-xs mt-1" style="color: var(--text-light);">
        Komitmen
       </div>
      </div>
@@ -289,59 +313,51 @@
   </section><!-- ══════════════════════ TENTANG ══════════════════════ -->
   <section id="tentang" class="w-full py-20" style="background: var(--bg);">
    <div class="max-w-6xl mx-auto px-5">
-    <div class="text-center mb-14 fade-up">
-     <span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Tentang Saya</span>
-     <h2 class="text-3xl font-extrabold mt-2" style="color: var(--text);">Siapa Saya?</h2>
+    <div class="text-center mb-14 fade-up"><span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">About</span>
+     <h2 class="text-4xl font-extrabold mt-3" style="color: var(--text);">Tentang Saya</h2>
     </div>
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-     <!-- Avatar / illustration -->
+    <div class="grid md:grid-cols-2 gap-12 items-center"><!-- Avatar -->
      <div class="fade-up flex justify-center">
       <div class="relative w-72 h-72">
-       <div class="absolute inset-0 rounded-3xl" style="background: linear-gradient(135deg, rgba(29,107,243,0.15), rgba(124,58,237,0.15)); transform: rotate(6deg); border-radius: 28px;"></div>
-       <div class="absolute inset-0 rounded-3xl flex flex-col items-center justify-center gap-3" style="background: var(--surface); border-radius: 24px; box-shadow: 0 8px 40px rgba(29,107,243,0.12);">
-        <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), #60a5fa);">
-         <i data-lucide="user" style="width:36px;height:36px;color:#fff;"></i>
+       <div class="absolute inset-0 rounded-3xl" style="background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(168,85,247,0.12)); transform: rotate(-6deg); border-radius: 28px;"></div>
+       <div class="absolute inset-0 rounded-3xl flex flex-col items-center justify-center gap-3" style="background: var(--surface); border-radius: 24px; box-shadow: 0 8px 32px rgba(59,130,246,0.15); border: 1px solid var(--border);">
+        <div class="w-20 h-20 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--secondary));"><i data-lucide="user" style="width:36px;height:36px;color:#fff;"></i>
         </div>
         <div class="text-center px-4">
          <p class="font-bold text-lg" id="about-name" style="color: var(--text);">Tanimbar Falaksoru</p>
-         <p class="text-xs mt-1" style="color: #64748b;">Dukcapil Digital Innovator</p>
+         <p class="text-xs mt-1" style="color: var(--text-light);">Digital Innovation Specialist</p>
         </div>
-        <div class="flex gap-2 mt-1">
-         <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(29,107,243,0.1); color: var(--primary);">AI</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(124,58,237,0.1); color: var(--secondary);">Gov-Tech</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(16,185,129,0.1); color: #10b981;">Dev</span>
+        <div class="flex gap-2 mt-1"><span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(59,130,246,0.15); color: var(--primary);">AI</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(168,85,247,0.12); color: var(--secondary);">Gov-Tech</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(16,185,129,0.1); color: var(--accent);">Dev</span>
         </div>
        </div>
       </div>
      </div><!-- Text + skills -->
      <div class="fade-up">
-      <p id="about-description" class="leading-relaxed mb-6" style="color: #475569; font-size: 1rem;">Saya adalah pengembang solusi digital yang berfokus pada modernisasi layanan publik, khususnya di bidang administrasi kependudukan (Dukcapil). Dengan pengalaman membangun sistem digital inovatif, saya menggabungkan teknologi web, Google Apps Script, dan kecerdasan buatan untuk menciptakan pelayanan yang efisien, transparan, dan mudah diakses masyarakat.</p>
-      <div class="space-y-4">
+      <p id="about-description" class="leading-relaxed mb-8 text-base" style="color: var(--text-light);">Saya adalah pengembang solusi digital yang berfokus pada modernisasi layanan publik, khususnya di bidang administrasi kependudukan (Dukcapil). Dengan pengalaman membangun sistem digital inovatif, saya menggabungkan teknologi web, Google Apps Script, dan kecerdasan buatan untuk menciptakan pelayanan yang efisien, transparan, dan mudah diakses masyarakat.</p>
+      <div class="space-y-5">
        <div>
-        <div class="flex justify-between mb-1">
-         <span class="text-sm font-semibold" style="color: var(--text);">Web Development</span> <span class="text-xs" style="color: #64748b;">90%</span>
+        <div class="flex justify-between mb-2"><span class="text-sm font-semibold" style="color: var(--text);">Web Development</span> <span class="text-xs font-medium" style="color: var(--primary);">90%</span>
         </div>
         <div class="skill-bar">
          <div class="skill-fill" style="width:90%;"></div>
         </div>
        </div>
        <div>
-        <div class="flex justify-between mb-1">
-         <span class="text-sm font-semibold" style="color: var(--text);">Google Apps Script</span> <span class="text-xs" style="color: #64748b;">85%</span>
+        <div class="flex justify-between mb-2"><span class="text-sm font-semibold" style="color: var(--text);">Google Apps Script</span> <span class="text-xs font-medium" style="color: var(--primary);">85%</span>
         </div>
         <div class="skill-bar">
          <div class="skill-fill" style="width:85%;"></div>
         </div>
        </div>
        <div>
-        <div class="flex justify-between mb-1">
-         <span class="text-sm font-semibold" style="color: var(--text);">UI/UX Design</span> <span class="text-xs" style="color: #64748b;">80%</span>
+        <div class="flex justify-between mb-2"><span class="text-sm font-semibold" style="color: var(--text);">UI/UX Design</span> <span class="text-xs font-medium" style="color: var(--primary);">80%</span>
         </div>
         <div class="skill-bar">
          <div class="skill-fill" style="width:80%;"></div>
         </div>
        </div>
        <div>
-        <div class="flex justify-between mb-1">
-         <span class="text-sm font-semibold" style="color: var(--text);">AI Prompt Engineering</span> <span class="text-xs" style="color: #64748b;">88%</span>
+        <div class="flex justify-between mb-2"><span class="text-sm font-semibold" style="color: var(--text);">AI Prompt Engineering</span> <span class="text-xs font-medium" style="color: var(--primary);">88%</span>
         </div>
         <div class="skill-bar">
          <div class="skill-fill" style="width:88%;"></div>
@@ -352,171 +368,157 @@
     </div>
    </div>
   </section><!-- ══════════════════════ PORTOFOLIO ══════════════════════ -->
-  <section id="portofolio" class="w-full py-20" style="background: #eaf1fd;">
+  <section id="portofolio" class="w-full py-20" style="background: var(--bg);">
    <div class="max-w-6xl mx-auto px-5">
-    <div class="text-center mb-14 fade-up">
-     <span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Portofolio</span>
-     <h2 class="text-3xl font-extrabold mt-2" style="color: var(--text);">Proyek Unggulan</h2>
-     <p class="mt-3 text-sm" style="color: #64748b;">Solusi digital yang telah dibangun untuk meningkatkan kualitas layanan publik</p>
+    <div class="text-center mb-14 fade-up"><span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Portfolio</span>
+     <h2 class="text-4xl font-extrabold mt-3" style="color: var(--text);">Proyek Unggulan</h2>
+     <p class="mt-4 text-sm" style="color: var(--text-light);">Solusi digital yang telah dibangun untuk meningkatkan kualitas layanan publik</p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <!-- Card 1 --> <a href="https://dukcapil.tanimbar.go.id/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #1d3a6b, #1d6bf3);">
-       <i data-lucide="globe" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
-       <div class="absolute inset-0" style="background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><circle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22rgba(255,255,255,0.15)%22/></svg>') repeat;"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Card 1 --> <a href="https://dukcapil.tanimbar.go.id/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(59,130,246,0.06));"><i data-lucide="globe" style="width:48px;height:48px;color:#3b82f6;"></i>
       </div>
       <div class="p-5">
        <h3 class="font-bold text-base mb-2" style="color: var(--text);">Website Dukcapil Tanimbar</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Portal resmi Dinas Kependudukan Kepulauan Tanimbar dengan informasi layanan dan sistem antrian digital.</p><button class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Buka Website <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Portal resmi Dinas Kependudukan Kepulauan Tanimbar dengan informasi layanan dan sistem antrian digital.</p><button class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Buka Website <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
       </div></a><!-- Card 2 --> <a href="https://tanimbarfalaksoru-hub.github.io/lahirmatiproaktif/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #134e2a, #10b981);">
-       <i data-lucide="file-check" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.05));"><i data-lucide="file-check" style="width:48px;height:48px;color:#10b981;"></i>
       </div>
       <div class="p-5">
        <h3 class="font-bold text-base mb-2" style="color: var(--text);">Lahir Mati Proaktif</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Platform pencatatan peristiwa vital (kelahiran &amp; kematian) secara proaktif dari desa untuk Dukcapil.</p><button class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Buka Aplikasi <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Platform pencatatan peristiwa vital (kelahiran &amp; kematian) secara proaktif dari desa untuk Dukcapil.</p><button class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Buka Aplikasi <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
       </div></a><!-- Card 3 -->
      <div class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #1a1a3e, var(--secondary));">
-       <i data-lucide="globe" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(124,58,237,0.06));"><i data-lucide="globe" style="width:48px;height:48px;color:#a855f7;"></i>
       </div>
       <div class="p-5">
        <h3 class="font-bold text-base mb-2" style="color: var(--text);">Website Dukcapil Smart</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Website resmi Dukcapil modern dengan fitur informasi layanan, panduan persyaratan, dan portal pengaduan.</p><button onclick="showDetail('Website Dukcapil Smart','Website profesional Dinas Kependudukan dan Catatan Sipil yang memuat informasi layanan, persyaratan dokumen, jadwal pelayanan, dan form pengaduan warga. Responsif di semua perangkat.')" class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Lihat Detail <i data-lucide="arrow-right" style="width:14px;height:14px;"></i> </button>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Website resmi Dukcapil modern dengan fitur informasi layanan, panduan persyaratan, dan portal pengaduan.</p><button onclick="showDetail('Website Dukcapil Smart','Website profesional Dinas Kependudukan dan Catatan Sipil yang memuat informasi layanan, persyaratan dokumen, jadwal pelayanan, dan form pengaduan warga. Responsif di semua perangkat.')" class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Lihat Detail <i data-lucide="arrow-right" style="width:14px;height:14px;"></i> </button>
       </div>
      </div><!-- Card 4 --> <a href="https://tanimbarfalaksoru-hub.github.io/walangaduk/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #7c2d12, #f97316);">
-       <i data-lucide="briefcase" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));"><i data-lucide="briefcase" style="width:48px;height:48px;color:#f97316;"></i>
       </div>
       <div class="p-5">
        <h3 class="font-bold text-base mb-2" style="color: var(--text);">Walangaduk</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Aplikasi layanan kependudukan inovatif untuk mengurus dokumen tanpa harus datang ke kantor.</p><button class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Buka Aplikasi <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Aplikasi layanan kependudukan inovatif untuk mengurus dokumen tanpa harus datang ke kantor.</p><button class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Buka Aplikasi <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
       </div></a><!-- Card 5 --> <a href="https://tanimbarfalaksoru-hub.github.io/dashboarddkb2025/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #1e3a5f, #0ea5e9);">
-       <i data-lucide="bar-chart-3" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05));"><i data-lucide="bar-chart-3" style="width:48px;height:48px;color:#3b82f6;"></i>
       </div>
       <div class="p-5">
        <h3 class="font-bold text-base mb-2" style="color: var(--text);">Dashboard DKB 2025</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Dashboard analitik dan monitoring data kependudukan Dinas Kependudukan Kepulauan Tanimbar dengan visualisasi real-time.</p><button class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Buka Dashboard <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Dashboard analitik dan monitoring data kependudukan Dinas Kependudukan Kepulauan Tanimbar dengan visualisasi real-time.</p><button class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Buka Dashboard <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
       </div></a><!-- CTA Card --> <a href="https://tanimbarfalaksoru-hub.github.io/absensismk6tanimbar/" target="_blank" rel="noopener noreferrer" class="portfolio-card fade-up">
-      <div class="port-banner" style="background: linear-gradient(135deg, #5b21b6, #a855f7);">
-       <i data-lucide="check-square" style="width:52px;height:52px;color:rgba(255,255,255,0.8);"></i>
+      <div class="port-banner" style="background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(168,85,247,0.05));"><i data-lucide="check-square" style="width:48px;height:48px;color:#a855f7;"></i>
       </div>
       <div class="p-5">
-       <h3 class="font-bold text-base mb-2" style="color: var(--text);">Absensi Digital SMK 6 Tanimbar</h3>
-       <p class="text-sm mb-4" style="color: #64748b; line-height: 1.6;">Sistem presensi digital berbasis QR Code untuk SMK 6 Tanimbar dengan laporan otomatis terintegrasi spreadsheet.</p><button class="flex items-center gap-1 text-sm font-semibold" style="color: var(--primary);"> Buka Sistem <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
+       <h3 class="font-bold text-base mb-2" style="color: var(--text);">Absensi Digital SMK 6</h3>
+       <p class="text-sm mb-4" style="color: var(--text-light); line-height: 1.6;">Sistem presensi digital berbasis QR Code untuk SMK 6 Tanimbar dengan laporan otomatis terintegrasi spreadsheet.</p><button class="flex items-center gap-1 text-sm font-semibold transition-colors" style="color: var(--primary);"> Buka Sistem <i data-lucide="external-link" style="width:14px;height:14px;"></i> </button>
       </div></a>
     </div>
    </div>
   </section><!-- ══════════════════════ LAYANAN ══════════════════════ -->
   <section id="layanan" class="w-full py-20" style="background: var(--bg);">
    <div class="max-w-6xl mx-auto px-5">
-    <div class="text-center mb-14 fade-up">
-     <span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Layanan</span>
-     <h2 class="text-3xl font-extrabold mt-2" style="color: var(--text);">Apa yang Saya Tawarkan</h2>
-     <p class="mt-3 text-sm" style="color: #64748b;">Solusi lengkap untuk transformasi digital instansi pemerintah</p>
+    <div class="text-center mb-14 fade-up"><span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Services</span>
+     <h2 class="text-4xl font-extrabold mt-3" style="color: var(--text);">Layanan Saya</h2>
+     <p class="mt-4 text-sm" style="color: var(--text-light);">Solusi lengkap untuk transformasi digital instansi pemerintah</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
      <div class="service-card fade-up">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(29,107,243,0.1);">
-       <i data-lucide="monitor" style="width:22px;height:22px;color: var(--primary);"></i>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(37,99,235,0.1);"><i data-lucide="monitor" style="width:24px;height:24px;color: var(--primary);"></i>
       </div>
-      <h3 class="font-bold mb-2" style="color: var(--text);">Website Pelayanan Publik</h3>
-      <p class="text-sm" style="color: #64748b; line-height: 1.7;">Pembuatan website profesional dan responsif untuk instansi pemerintah dengan standar layanan modern.</p>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">Website Pelayanan Publik</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Pembuatan website profesional dan responsif untuk instansi pemerintah dengan standar layanan modern.</p>
      </div>
      <div class="service-card fade-up">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(16,185,129,0.1);">
-       <i data-lucide="users-2" style="width:22px;height:22px;color:#10b981;"></i>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(16,185,129,0.1);"><i data-lucide="users-2" style="width:24px;height:24px;color:var(--accent);"></i>
       </div>
-      <h3 class="font-bold mb-2" style="color: var(--text);">Sistem Adminduk</h3>
-      <p class="text-sm" style="color: #64748b; line-height: 1.7;">Pengembangan sistem administrasi kependudukan yang efisien, terintegrasi, dan mudah dioperasikan.</p>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">Sistem Adminduk</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Pengembangan sistem administrasi kependudukan yang efisien, terintegrasi, dan mudah dioperasikan.</p>
      </div>
      <div class="service-card fade-up">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(124,58,237,0.1);">
-       <i data-lucide="zap" style="width:22px;height:22px;color: var(--secondary);"></i>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(124,58,237,0.1);"><i data-lucide="zap" style="width:24px;height:24px;color: var(--secondary);"></i>
       </div>
-      <h3 class="font-bold mb-2" style="color: var(--text);">Digitalisasi Layanan Pemda</h3>
-      <p class="text-sm" style="color: #64748b; line-height: 1.7;">Transformasi proses manual menjadi sistem digital yang cepat, akurat, dan transparan untuk pemerintah daerah.</p>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">Digitalisasi Layanan</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Transformasi proses manual menjadi sistem digital yang cepat, akurat, dan transparan untuk pemerintah daerah.</p>
      </div>
      <div class="service-card fade-up">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(249,115,22,0.1);">
-       <i data-lucide="table-2" style="width:22px;height:22px;color:#f97316;"></i>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(249,115,22,0.1);"><i data-lucide="table-2" style="width:24px;height:24px;color:#f97316;"></i>
       </div>
-      <h3 class="font-bold mb-2" style="color: var(--text);">Integrasi Google Spreadsheet</h3>
-      <p class="text-sm" style="color: #64748b; line-height: 1.7;">Otomasi dan integrasi data menggunakan Google Spreadsheet &amp; Apps Script untuk berbagai kebutuhan operasional.</p>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">Integrasi Google Apps</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Otomasi dan integrasi data menggunakan Google Spreadsheet &amp; Apps Script untuk berbagai kebutuhan operasional.</p>
+     </div>
+     <div class="service-card fade-up">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(59,130,246,0.1);"><i data-lucide="brain" style="width:24px;height:24px;color:#3b82f6;"></i>
+      </div>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">AI Prompt Engineering</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Pemanfaatan kecerdasan buatan untuk meningkatkan efisiensi, personalisasi layanan, dan analitik data.</p>
+     </div>
+     <div class="service-card fade-up">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(168,85,247,0.1);"><i data-lucide="settings" style="width:24px;height:24px;color:#a855f7;"></i>
+      </div>
+      <h3 class="font-bold mb-2 text-base" style="color: var(--text);">Konsultasi &amp; Support</h3>
+      <p class="text-sm" style="color: var(--text-light); line-height: 1.7;">Konsultasi teknis, maintenance berkala, dan support 24/7 untuk memastikan sistem berjalan optimal.</p>
      </div>
     </div>
    </div>
   </section><!-- ══════════════════════ KONTAK ══════════════════════ -->
-  <section id="kontak" class="w-full py-20" style="background: #eaf1fd;">
+  <section id="kontak" class="w-full py-20" style="background: var(--bg);">
    <div class="max-w-3xl mx-auto px-5">
-    <div class="text-center mb-12 fade-up">
-     <span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Kontak</span>
-     <h2 class="text-3xl font-extrabold mt-2" style="color: var(--text);">Hubungi Saya</h2>
-     <p class="mt-3 text-sm" style="color: #64748b;">Ada proyek yang ingin dibangun? Mari diskusi bersama!</p>
+    <div class="text-center mb-12 fade-up"><span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--primary);">Contact</span>
+     <h2 class="text-4xl font-extrabold mt-3" style="color: var(--text);">Hubungi Saya</h2>
+     <p class="mt-4 text-sm" style="color: var(--text-light);">Ada proyek yang ingin dibangun? Mari diskusi bersama!</p>
     </div>
-    <div class="fade-up rounded-3xl p-8 md:p-10" style="background: var(--surface); box-shadow: 0 8px 48px rgba(29,107,243,0.1);">
+    <div class="fade-up rounded-xl p-8 md:p-10" style="background: var(--surface); box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid var(--border);">
      <form id="contact-form" onsubmit="submitForm(event)">
       <div class="grid md:grid-cols-2 gap-5 mb-5">
-       <div>
-        <label for="contact-name" class="block text-sm font-semibold mb-2" style="color: var(--text);">Nama Lengkap</label> <input id="contact-name" type="text" placeholder="Nama Anda" class="form-field" required>
+       <div><label for="contact-name" class="block text-sm font-semibold mb-2" style="color: var(--text);">Nama Lengkap</label> <input id="contact-name" type="text" placeholder="Nama Anda" class="form-field" required>
        </div>
-       <div>
-        <label for="contact-email" class="block text-sm font-semibold mb-2" style="color: var(--text);">Email</label> <input id="contact-email" type="email" placeholder="email@domain.com" class="form-field" required>
+       <div><label for="contact-email" class="block text-sm font-semibold mb-2" style="color: var(--text);">Email</label> <input id="contact-email" type="email" placeholder="email@domain.com" class="form-field" required>
        </div>
       </div>
-      <div class="mb-5">
-       <label for="contact-subject" class="block text-sm font-semibold mb-2" style="color: var(--text);">Subjek</label> <input id="contact-subject" type="text" placeholder="Perihal pesan Anda" class="form-field">
+      <div class="mb-5"><label for="contact-subject" class="block text-sm font-semibold mb-2" style="color: var(--text);">Subjek</label> <input id="contact-subject" type="text" placeholder="Perihal pesan Anda" class="form-field">
       </div>
-      <div class="mb-6">
-       <label for="contact-message" class="block text-sm font-semibold mb-2" style="color: var(--text);">Pesan</label> <textarea id="contact-message" rows="5" placeholder="Tuliskan pesan atau deskripsi proyek Anda..." class="form-field resize-none" required></textarea>
-      </div><button type="submit" id="submit-btn" class="btn-primary w-full flex items-center justify-center gap-2" style="padding: 1rem;"> <i data-lucide="send" style="width:16px;height:16px;"></i> <span id="submit-text">Kirim Pesan</span> </button>
+      <div class="mb-6"><label for="contact-message" class="block text-sm font-semibold mb-2" style="color: var(--text);">Pesan</label> <textarea id="contact-message" rows="5" placeholder="Tuliskan pesan atau deskripsi proyek Anda..." class="form-field resize-none" required></textarea>
+      </div><button type="submit" id="submit-btn" class="btn-primary w-full flex items-center justify-center gap-2" style="padding: 1rem;"> <i data-lucide="send" style="width:16px;height:16px;"></i> <span id="submit-text">Kirim Pesan ke WhatsApp</span> </button>
      </form><!-- Success message -->
-     <div id="success-msg" class="hidden mt-5 rounded-2xl p-4 flex items-center gap-3" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);">
-      <i data-lucide="check-circle" style="width:20px;height:20px;color:#10b981;flex-shrink:0;"></i>
-      <p class="text-sm font-medium" style="color: #065f46;">Pesan berhasil dikirim! Saya akan segera merespons dalam waktu 1x24 jam.</p>
+     <div id="success-msg" class="hidden mt-5 rounded-lg p-4 flex items-center gap-3" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);"><i data-lucide="check-circle" style="width:20px;height:20px;color:#10b981;flex-shrink:0;"></i>
+      <p class="text-sm font-medium" style="color: #065f46;">Pesan berhasil dikirim! Saya akan segera merespons dalam waktu 1×24 jam.</p>
      </div>
     </div><!-- Info cards -->
-    <div class="grid sm:grid-cols-3 gap-4 mt-6 fade-up">
-     <div class="rounded-2xl p-4 text-center" style="background: var(--surface); box-shadow: 0 2px 16px rgba(29,107,243,0.07);">
-      <i data-lucide="mail" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
+    <div class="grid sm:grid-cols-3 gap-4 mt-8 fade-up">
+     <div class="rounded-lg p-4 text-center fade-up" style="background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,0.2); border: 1px solid var(--border);"><i data-lucide="mail" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
       <p class="text-xs font-semibold" style="color: var(--text);">Email</p>
-      <p class="text-xs mt-1" style="color: #64748b;">tanimbarfalaksoru@gmail.com</p>
+      <p class="text-xs mt-1" style="color: var(--text-light);">tanimbarfalaksoru@gmail.com</p>
      </div>
-     <div class="rounded-2xl p-4 text-center" style="background: var(--surface); box-shadow: 0 2px 16px rgba(29,107,243,0.07);">
-      <i data-lucide="map-pin" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
+     <div class="rounded-lg p-4 text-center fade-up" style="background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,0.2); border: 1px solid var(--border);"><i data-lucide="map-pin" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
       <p class="text-xs font-semibold" style="color: var(--text);">Lokasi</p>
-      <p class="text-xs mt-1" style="color: #64748b;">Kepulauan Tanimbar, Maluku</p>
+      <p class="text-xs mt-1" style="color: var(--text-light);">Kepulauan Tanimbar, Maluku</p>
      </div>
-     <div class="rounded-2xl p-4 text-center" style="background: var(--surface); box-shadow: 0 2px 16px rgba(29,107,243,0.07);">
-      <i data-lucide="clock" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
+     <div class="rounded-lg p-4 text-center fade-up" style="background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,0.2); border: 1px solid var(--border);"><i data-lucide="clock" style="width:20px;height:20px;color: var(--primary); margin: 0 auto 8px;"></i>
       <p class="text-xs font-semibold" style="color: var(--text);">Respons</p>
-      <p class="text-xs mt-1" style="color: #64748b;">Dalam 1×24 Jam</p>
+      <p class="text-xs mt-1" style="color: var(--text-light);">Dalam 1×24 Jam</p>
      </div>
     </div>
    </div>
   </section><!-- ══════════════════════ FOOTER ══════════════════════ -->
-  <footer class="w-full py-10" style="background: #0a1628; color: #94a3b8;">
+  <footer class="w-full py-10" style="background: #0f1117; color: #8b949e;">
    <div class="max-w-6xl mx-auto px-5">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
      <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), #60a5fa);">
-       <i data-lucide="code-2" style="width:14px;height:14px;color:#fff;"></i>
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--secondary));"><i data-lucide="code-2" style="width:14px;height:14px;color:#fff;"></i>
       </div>
       <div>
        <p class="font-bold text-white text-sm">Tanimbar Falaksoru</p>
-       <p class="text-xs" style="color: #475569;">Pengembang Solusi Digital</p>
+       <p class="text-xs" style="color: #6e7681;">Digital Innovation Specialist</p>
       </div>
      </div>
-     <div class="flex gap-5 text-xs">
-      <a href="#beranda" class="hover:text-white transition-colors">Beranda</a> <a href="#tentang" class="hover:text-white transition-colors">Tentang</a> <a href="#portofolio" class="hover:text-white transition-colors">Portofolio</a> <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
+     <div class="flex gap-6 text-xs"><a href="#beranda" class="hover:text-white transition-colors">Beranda</a> <a href="#tentang" class="hover:text-white transition-colors">Tentang</a> <a href="#portofolio" class="hover:text-white transition-colors">Portofolio</a> <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
      </div>
-     <p id="footer-copyright" class="text-xs text-center md:text-right" style="color: #334155;">© 2025 Tanimbar Falaksoru. Semua hak dilindungi.</p>
+     <p id="footer-copyright" class="text-xs text-center md:text-right" style="color: #6e7681;">© 2025 Tanimbar Falaksoru. Semua hak dilindungi.</p>
     </div>
    </div>
-  </footer><!-- ══════════════════════ WhatsApp FAB ══════════════════════ --> <a id="wa-fab" href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
-   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /> <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.527 5.845L.057 23.5l5.78-1.516A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.574-.502-5.058-1.376l-.361-.215-3.757.985 1.003-3.659-.234-.375A9.957 9.957 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+  </footer><!-- ══════════════════════ WhatsApp FAB ══════════════════════ --> <a id="wa-fab" href="https://wa.me/6282239520402" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
+   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /> <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.527 5.845L.057 23.5l5.78-1.516A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.574-.502-5.058-1.376l-.361-.215-3.757.985 1.003-3.659-.234-.375A9.957 9.957 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
    </svg></a> <!-- Toast -->
   <div id="toast"></div><!-- Detail Modal -->
   <div id="modal-backdrop" onclick="closeModal()" class="hidden fixed inset-0" style="z-index:400; background: rgba(10,22,40,0.6); backdrop-filter: blur(4px);"></div>
@@ -526,8 +528,7 @@
      <h3 id="modal-title" class="font-bold text-lg" style="color: var(--text);"></h3><button onclick="closeModal()" class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style="background: #f1f5f9;"> <i data-lucide="x" style="width:14px;height:14px;color:#64748b;"></i> </button>
     </div>
     <p id="modal-desc" class="text-sm" style="color: #475569; line-height: 1.7;"></p>
-    <div class="mt-6 flex gap-3">
-     <button onclick="closeModal()" class="btn-primary text-sm px-5 py-2">Tutup</button> <a href="#kontak" onclick="closeModal()"><button class="text-sm px-5 py-2 rounded-full font-semibold" style="background: #f1f5f9; color: var(--text);">Diskusi Proyek</button></a>
+    <div class="mt-6 flex gap-3"><button onclick="closeModal()" class="btn-primary text-sm px-5 py-2">Tutup</button> <a href="#kontak" onclick="closeModal()"><button class="text-sm px-5 py-2 rounded-full font-semibold" style="background: #f1f5f9; color: var(--text);">Diskusi Proyek</button></a>
     </div>
    </div>
   </div>
@@ -621,6 +622,7 @@
       navbar.classList.add('scrolled');
       navLinks.forEach(l => l.style.color = '#1e293b');
       navBrand.style.color = '#1e293b';
+      document.getElementById('nav-brand-mobile').style.color = '#1e293b';
       navLogo.style.color = '#1e293b';
       hamburger.style.background = 'rgba(29,107,243,0.08)';
       hamburger.style.borderColor = 'rgba(29,107,243,0.15)';
@@ -629,6 +631,7 @@
       navbar.classList.remove('scrolled');
       navLinks.forEach(l => l.style.color = 'rgba(255,255,255,0.85)');
       navBrand.style.color = '#fff';
+      document.getElementById('nav-brand-mobile').style.color = '#fff';
       navLogo.style.color = '#fff';
       hamburger.style.background = 'rgba(255,255,255,0.12)';
       hamburger.style.borderColor = 'rgba(255,255,255,0.2)';
@@ -638,6 +641,7 @@
   // init nav color
   navLinks.forEach(l => l.style.color = 'rgba(255,255,255,0.85)');
   navBrand.style.color = '#fff';
+  document.getElementById('nav-brand-mobile').style.color = '#fff';
 
   // ── Mobile menu ──
   function toggleMenu() {
@@ -742,5 +746,5 @@ _${new Date().toLocaleString('id-ID')}_`;
   // ── Lucide init ──
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9df1db0d2242c09d',t:'MTc3Mzk3OTcwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9df22854c65bf91c',t:'MTc3Mzk4Mjg3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
